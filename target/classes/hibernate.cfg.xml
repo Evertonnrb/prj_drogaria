@@ -39,6 +39,11 @@
 		<mapping class="br.com.nrbsistemas.domain.Pessoa"/>
 		<mapping class="br.com.nrbsistemas.domain.Cliente"/>
 		<mapping class="br.com.nrbsistemas.domain.Funcionario"/>
+		<mapping class="br.com.nrbsistemas.domain.Usuario"/>
+		<mapping class="br.com.nrbsistemas.domain.Venda"/>
+		<mapping class="br.com.nrbsistemas.domain.Movimentacao"/>
+		<mapping class="br.com.nrbsistemas.domain.Caixa"/>
+		<mapping class="br.com.nrbsistemas.domain.ItemVenda"/>
 	</session-factory>
 
 </hibernate-configuration>
