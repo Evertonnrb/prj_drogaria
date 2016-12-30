@@ -21,7 +21,21 @@ public class EstadoDaoTest {
 		EstadoDao estadoDao = new EstadoDao();
 		estadoDao.salvar(estado);
 	}
-
+	@Ignore
+	@Test
+	public void excluir(){
+		Long codigo = Long.parseLong(JOptionPane.showInputDialog("Digite o cod da cidade a excluir"));
+		EstadoDao estadoDao = new EstadoDao();
+		Estado estado = estadoDao.buscar(codigo);
+		if(estado == null){
+			System.out.println("Nenhum registro encontrado com o cod "+codigo);
+		}else{
+				estadoDao.excluir(estado);
+				System.out.println("Estado "+estado.getNome()+" excluido");
+			}
+			
+		}
+		
 	@Test
 	@Ignore
 	public void listar() {
@@ -34,6 +48,7 @@ public class EstadoDaoTest {
 	}
 
 	@Test
+	@Ignore
 	public void buscar() {
 		//Long codigo = 1L;
 		Long codigo = Long.parseLong(JOptionPane.showInputDialog("Digite o codigo para a buscar"));
@@ -48,5 +63,16 @@ public class EstadoDaoTest {
 		}
 		
 	}
-
+	@Test
+	public void atualizar(){
+		Long codigo = 1L;
+		EstadoDao estadoDao = new EstadoDao();
+		Estado estado = estadoDao.buscar(codigo);
+		if(estado == null){
+			System.out.println("Estado não encontrado");
+		}else{
+			estadoDao.atualizar(estado);
+			System.out.println("Estado atualizado");
+		}
+	}
 }

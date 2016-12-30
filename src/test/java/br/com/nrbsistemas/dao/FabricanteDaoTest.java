@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.nrbsistemas.domain.Estado;
 import br.com.nrbsistemas.domain.Fabricante;
 
 public class FabricanteDaoTest {
@@ -21,6 +20,18 @@ public class FabricanteDaoTest {
 		fabricanteDao.salvar(fabricante);
 	}
 	@Test
+	public void excluir(){
+		Long codigo = 1L;
+		FabricanteDao fabricanteDao = new FabricanteDao();
+		Fabricante fabricante = fabricanteDao.buscar(codigo);
+		if(fabricante == null){
+			System.out.println("Fabricante não encontrado");
+		}else{
+			fabricanteDao.excluir(fabricante);
+			System.out.println("Fabricante "+fabricante.getDescrisao()+" excluido com sucesso");
+		}
+	}
+	@Test
 	@Ignore
 	public void listar(){
 		FabricanteDao fabricanteDao = new FabricanteDao();
@@ -31,6 +42,7 @@ public class FabricanteDaoTest {
 		}
 	}
 	@Test
+	@Ignore
 	public void buscar(){
 		Long codigo = Long.parseLong(JOptionPane.showInputDialog("Digite o cod"));
 		
@@ -41,7 +53,7 @@ public class FabricanteDaoTest {
 		}else{
 			System.out.println("Nenhum resultado encontrado");
 		}
-	}
+	}	
 	
 
 }

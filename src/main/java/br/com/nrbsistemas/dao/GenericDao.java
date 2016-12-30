@@ -44,6 +44,23 @@ public class GenericDao<Entidade> {
 
 	}
 
+	public void excluir(Entidade entidade) {
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.delete(entidade);
+			transacao.commit();
+		} catch (RuntimeException erro) {
+			
+			
+			
+			throw erro;
+		} finally {
+			sessao.close();
+		}
+	}
+
 	@SuppressWarnings("unchecked")
 	public List<Entidade> listar() {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
@@ -71,10 +88,24 @@ public class GenericDao<Entidade> {
 			return resultado;
 		} catch (RuntimeException erro) {
 			// TODO: handle exception
-		throw erro;
+			throw erro;
 		} finally {
 			sessao.close();
 		}
-		
+
+	}
+	public void atualizar(Entidade entidade){
+		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
+		Transaction transacao = null;
+		try {
+			transacao = sessao.beginTransaction();
+			sessao.update(entidade);
+			transacao.commit();
+		} catch (RuntimeException erro) {
+			// TODO: handle exception
+			throw erro;
+		}finally {
+			sessao.close();
+		}
 	}
 }
