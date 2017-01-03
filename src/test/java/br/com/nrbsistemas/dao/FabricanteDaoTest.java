@@ -54,6 +54,14 @@ public class FabricanteDaoTest {
 			System.out.println("Nenhum resultado encontrado");
 		}
 	}	
-	
+	@Test
+	@Ignore
+	public void editar(){
+		Long cod = 1L;
+		FabricanteDao fabricanteDao = new FabricanteDao();
+		Fabricante fabricante = fabricanteDao.buscar(cod);
+		fabricante.setDescrisao("Vendedor de lã");
+		fabricanteDao.atualizar(fabricante);
+	}
 
 }

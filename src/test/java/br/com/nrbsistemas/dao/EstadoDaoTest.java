@@ -64,7 +64,7 @@ public class EstadoDaoTest {
 		
 	}
 	@Test
-	public void atualizar(){
+	public void editar(){
 		Long codigo = 1L;
 		EstadoDao estadoDao = new EstadoDao();
 		Estado estado = estadoDao.buscar(codigo);
