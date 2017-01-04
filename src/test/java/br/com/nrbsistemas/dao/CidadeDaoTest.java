@@ -37,6 +37,7 @@ public class CidadeDaoTest {
 		}
 	}
 	@Test
+	@Ignore
 	public void buscar(){
 		Long cod = 3L;
 		
@@ -44,4 +45,37 @@ public class CidadeDaoTest {
 		Cidade cidade = cidadeDao.buscar(cod); 
 		System.out.println(cidade.getNome()+" "+cidade.getEstado().getNome());
 	}
-}
+	@Test
+	@Ignore
+	public void excluir(){
+		Long codigo = 5L;
+		
+		CidadeDao cidadeDao = new CidadeDao();
+		Cidade cidade =  cidadeDao.buscar(codigo);
+		if(cidade != null){
+		cidadeDao.excluir(cidade);
+		System.out.println("Cidade removida ");
+		System.out.println(cidade.getNome()+" "+cidade.getCodigo());
+		}else{
+			System.out.println("Cidade nao encontrada");
+		}
+		
+	}
+	@Test
+	public void editar(){
+		Long codigoCidade = 6L;
+		Long codigoEstado = 4L;
+		
+		CidadeDao cidadeDao = new CidadeDao();
+		Cidade cidade = cidadeDao.buscar(codigoCidade);
+		System.out.println("Cidade a ser editada "+cidade.getNome());
+				
+		EstadoDao estadoDao = new EstadoDao();
+		Estado estado = estadoDao.buscar(codigoEstado);
+		System.out.println("Estado a ser editado "+estado.getNome());
+		
+		cidade.setNome("nullo");
+		estado.setNome("nullo tbm");
+		cidadeDao.atualizar(cidade);
+	}
+	}
