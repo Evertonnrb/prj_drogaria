@@ -28,7 +28,7 @@ public class Pessoa extends GenericDomain {
 	@Column(length = 15, nullable = false)
 	private String cep;
 
-	@Column(length = 10, nullable = false)
+	@Column(length = 10)
 	private String complememto;
 
 	@Column(length = 16, nullable = false)
@@ -39,6 +39,17 @@ public class Pessoa extends GenericDomain {
 
 	@Column(nullable = false)
 	private String email;
+	
+	@Column(nullable = false)
+	private Cidade cidade;
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 
 	public String getNome() {
 		return nome;

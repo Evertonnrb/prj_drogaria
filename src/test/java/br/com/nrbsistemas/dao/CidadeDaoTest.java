@@ -16,15 +16,19 @@ public class CidadeDaoTest {
 	@Ignore
 	public void salvar(){
 		EstadoDao estadoDao = new EstadoDao();
-		
-		Estado estado = estadoDao.buscar(11L);
-		
-		Cidade cidade = new Cidade();
-		cidade.setNome("Linhares");
-		cidade.setEstado(estado);
-		
-		CidadeDao cidadeDao = new CidadeDao();
-		cidadeDao.salvar(cidade);
+		Estado estado = estadoDao.buscar(1L);
+		if (estado != null) {
+			Cidade cidade = new Cidade();
+			cidade.setNome("Juiz de fora");
+			cidade.setEstado(estado);
+			
+			CidadeDao cidadeDao = new CidadeDao();
+			cidadeDao.salvar(cidade);
+			System.out.println("Cidade salva com sucesso");
+		} else {
+			System.out.println("Estado não encontrado");
+		}
+
 	}
 	@Test
 	@Ignore
@@ -46,9 +50,9 @@ public class CidadeDaoTest {
 		System.out.println(cidade.getNome()+" "+cidade.getEstado().getNome());
 	}
 	@Test
-	@Ignore
+	//@Ignore
 	public void excluir(){
-		Long codigo = 5L;
+		Long codigo = 2L;
 		
 		CidadeDao cidadeDao = new CidadeDao();
 		Cidade cidade =  cidadeDao.buscar(codigo);

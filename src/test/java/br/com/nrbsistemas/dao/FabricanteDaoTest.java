@@ -15,11 +15,12 @@ public class FabricanteDaoTest {
 	public void salvar() {
 		// Test salvar fabricante
 		Fabricante fabricante =  new Fabricante();
-		fabricante.setDescrisao("Fabrite de marihuana");
+		fabricante.setDescrisao("Farmais");
 		FabricanteDao fabricanteDao = new FabricanteDao();
 		fabricanteDao.salvar(fabricante);
 	}
 	@Test
+	@Ignore
 	public void excluir(){
 		Long codigo = 1L;
 		FabricanteDao fabricanteDao = new FabricanteDao();

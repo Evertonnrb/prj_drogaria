@@ -11,12 +11,12 @@ import br.com.nrbsistemas.domain.Estado;
 
 public class EstadoDaoTest {
 	@Test
-	@Ignore
+	//@Ignore
 	public void salvar() {
 		// testando o metodo salvar
 		Estado estado = new Estado();
-		estado.setNome("Minas Gerais");
-		estado.setSigla("MG");
+		estado.setNome("Rio de Janeiro");
+		estado.setSigla("Rj");
 
 		EstadoDao estadoDao = new EstadoDao();
 		estadoDao.salvar(estado);
